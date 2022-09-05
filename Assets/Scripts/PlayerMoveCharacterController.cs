@@ -83,6 +83,7 @@ public class PlayerMoveCharacterController : MonoBehaviour
         calcVelocity.z /= 1 + drags.z * Time.deltaTime;
 
         //characterController.Move((directionValue + calcVelocity) * Time.deltaTime * speed);
+
         if (Vector3.Distance(transform.position, directionValue) > 0.5f)
             characterController.Move(_direction.normalized * Time.deltaTime * speed);
     }

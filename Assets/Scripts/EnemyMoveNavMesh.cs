@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMoveNavmesh : MonoBehaviour
+public class EnemyMoveNavMesh : MonoBehaviour
 {
     CharacterController characterController = null;
+    [SerializeField] private Transform player;
     // [SerializeField] float speed = 5f;
     [SerializeField] private float jumpValue = 2f;
     [SerializeField] private float dashValue = 5f;
@@ -40,13 +41,7 @@ public class PlayerMoveNavmesh : MonoBehaviour
             calcVelocity.y = 0.0f;
         }
 
-        if (Input.GetMouseButton(1))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
-            {
-                agent.SetDestination(hit.point);
-            }
-        }
+        agent.SetDestination(player.position);
 
         if (agent.remainingDistance > agent.stoppingDistance)
         {
