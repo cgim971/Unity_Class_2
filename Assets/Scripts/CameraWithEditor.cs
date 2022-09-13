@@ -43,6 +43,19 @@ public class CameraWithEditor : Editor
 
         characterFollowCamera.camDistance = Mathf.Clamp(characterFollowCamera.camDistance, 2f, float.MaxValue);
 
+        Handles.color = Color.yellow;
+        characterFollowCamera.camHeight = Handles.ScaleSlider(
+            characterFollowCamera.camHeight,
+            posTarget,
+            Vector3.up,
+            Quaternion.identity,
+            characterFollowCamera.camHeight,
+            0.1f
+            );
+
+        characterFollowCamera.camHeight = Mathf.Clamp(characterFollowCamera.camHeight, 2f, float.MaxValue);
+
+
         GUIStyle guiStyleLabel = new GUIStyle();
         guiStyleLabel.fontSize = 15;
         guiStyleLabel.normal.textColor = Color.white;

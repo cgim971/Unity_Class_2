@@ -8,7 +8,7 @@ public class StateMachineBehaviourSetIdleID : StateMachineBehaviour
 
     public float minBaseIdleTime = 0f;
     public float maxBaseIdleTime = 5f;
-    protected float rndBaseIdleTime;
+    [SerializeField] protected float rndBaseIdleTime;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,14 +17,15 @@ public class StateMachineBehaviourSetIdleID : StateMachineBehaviour
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(animator.IsInTransition(0)&&animator.GetCurrentAnimatorStateInfo(0).fullPathHash == stateInfo.fullPathHash)
+        if (animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).fullPathHash == stateInfo.fullPathHash)
         {
             animator.SetInteger("Idle_id", -1);
         }
 
-        if(stateInfo.normalizedTime > rndBaseIdleTime && !animator.IsInTransition(0))
+        if (stateInfo.normalizedTime > rndBaseIdleTime && !animator.IsInTransition(0))
         {
-            animator.SetInteger("Idle_id", Random.Range(0, idleIDCount));
+            animator.SetInteger("Idle_id", Random.Range(0, idleIDCount + 1));
+            Debug.Log(animator.GetInteger("Idle_id"));
         }
     }
 }

@@ -32,13 +32,13 @@ RenderSettings:
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.16788375, g: 0.21073635, b: 0.28994125, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 629aee18859cd134fbccd1a4e435d6a2, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -349,8 +349,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997005795}
-  m_LocalRotation: {x: 0.2889674, y: 0.36348304, z: -0.11969424, w: 0.8775256}
-  m_LocalPosition: {x: -2.8812728, y: 3.01, z: -2.8812726}
+  m_LocalRotation: {x: 0.3635748, y: 0.35180536, z: -0.15059763, w: 0.8493331}
+  m_LocalPosition: {x: -5.8120594, y: 8.615862, z: -5.812059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -369,8 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68362d1c1f03f624bb79458ef3458a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camHeight: 1.01
-  camDistance: 4.074735
+  camHeight: 6.615862
+  camDistance: 8.219493
   camAngle: 45
   camFollowTime: 0.5
   targetHeight: 2
@@ -797,9 +797,9 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653491168506}
   - component: {fileID: 5866666021833039488}
-  - component: {fileID: 5866666021833039490}
   - component: {fileID: 5866666021833039489}
   - component: {fileID: 5866666021833039491}
+  - component: {fileID: 5866666021833039492}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2106,7 +2106,7 @@ Animator:
   m_GameObject: {fileID: 919132149238193728}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 71cfd8f477d30d74fb6cbdf96faf67ec, type: 3}
-  m_Controller: {fileID: 9100000, guid: 49807fe8fbda76c4f99839c2a89dfdba, type: 2}
+  m_Controller: {fileID: 9100000, guid: 74de7f3494125894e9b42e1aa155087b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2134,24 +2134,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &5866666021833039490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149238193728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a682583cea365e042bc008446a82bee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpValue: 2
-  dashValue: 5
-  drags: {x: 0, y: 0, z: 0}
-  layerGround:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!195 &5866666021833039491
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2174,6 +2156,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5866666021833039492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149238193728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b1f1f6ed3c20b42b42512f0a3692a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpValue: 2
+  dashValue: 5
+  drags: {x: 0, y: 0, z: 0}
+  layerGround:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &5901452235053635193
 Transform:
   m_ObjectHideFlags: 0
