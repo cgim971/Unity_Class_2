@@ -525,8 +525,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2103977547}
   - component: {fileID: 2103977546}
-  - component: {fileID: 2103977548}
   - component: {fileID: 2103977549}
+  - component: {fileID: 2103977548}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2080,7 +2080,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 62148030c6fe6f44ba229d43a49f3484, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
