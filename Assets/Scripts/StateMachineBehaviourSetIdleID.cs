@@ -25,7 +25,6 @@ public class StateMachineBehaviourSetIdleID : StateMachineBehaviour
         if (stateInfo.normalizedTime > rndBaseIdleTime && !animator.IsInTransition(0))
         {
             animator.SetInteger("Idle_id", Random.Range(0, idleIDCount + 1));
-            Debug.Log(animator.GetInteger("Idle_id"));
         }
     }
 }
