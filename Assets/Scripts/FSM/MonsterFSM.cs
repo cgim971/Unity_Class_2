@@ -10,7 +10,11 @@ public class MonsterFSM : MonoBehaviour
 
     private FieldOfView fov;
 
-    public Transform target => fov.FirstTarget;
+    public Transform target => fov?.FirstTarget;
+    public Transform[] posTargets;
+    public Transform posTarget = null;
+    private int posTargetsIdx = 0;
+
 
     public float atkRange;
     public bool getFlagAtk
@@ -32,7 +36,14 @@ public class MonsterFSM : MonoBehaviour
     {
         fov = GetComponent<FieldOfView>();
 
-        fsmManager = new StateMachine<MonsterFSM>(this, new stateIdle());
+        //fsmManager = new StateMachine<MonsterFSM>(this, new stateIdle());
+        //fsmManager.AddStateList(new stateMove());
+        //fsmManager.AddStateList(new stateAtk());
+
+        fsmManager = new StateMachine<MonsterFSM>(this, new StateRomming());
+        stateIdle stateIdle = new stateIdle();
+        stateIdle.isRomming = true;
+        fsmManager.AddStateList(stateIdle);
         fsmManager.AddStateList(new stateMove());
         fsmManager.AddStateList(new stateAtk());
     }
@@ -46,5 +57,18 @@ public class MonsterFSM : MonoBehaviour
     public Transform SearchEnemy()
     {
         return target;
+    }
+
+    public Transform SearchNextTargetPosition()
+    {
+        posTarget = null;
+        if (posTargets.Length > 0)
+        {
+            posTarget = posTargets[posTargetsIdx];
+        }
+
+        posTargetsIdx = (posTargetsIdx + 1) % posTargets.Length;
+
+        return posTarget;
     }
 }
