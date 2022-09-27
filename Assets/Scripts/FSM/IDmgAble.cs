@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAtkAble
+public interface IDmgAble 
 {
-    AtkBehaviour nowAtkBehaviour
+    bool getFlagLive
     {
         get;
     }
 
-    void OnExecuteAttack(int attackIndex);
+    void setDmg(int dmg, GameObject prefabEffect);
 }

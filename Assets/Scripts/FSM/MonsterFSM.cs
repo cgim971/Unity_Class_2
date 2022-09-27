@@ -5,8 +5,10 @@ using UnityEngine;
 public class MonsterFSM : MonoBehaviour
 {
     protected StateMachine<MonsterFSM> fsmManager;
-
     public StateMachine<MonsterFSM> FsmManager => fsmManager;
+
+    protected UnityEngine.AI.NavMeshAgent agent;
+    protected Animator animator;
 
     private FieldOfView fov;
 
@@ -17,7 +19,7 @@ public class MonsterFSM : MonoBehaviour
 
 
     public float atkRange;
-    public bool getFlagAtk
+    public virtual bool getFlagAtk
     {
         get
         {
@@ -32,43 +34,43 @@ public class MonsterFSM : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         fov = GetComponent<FieldOfView>();
 
-        //fsmManager = new StateMachine<MonsterFSM>(this, new stateIdle());
-        //fsmManager.AddStateList(new stateMove());
-        //fsmManager.AddStateList(new stateAtk());
-
-        fsmManager = new StateMachine<MonsterFSM>(this, new StateRomming());
-        stateIdle stateIdle = new stateIdle();
-        stateIdle.isRomming = true;
-        fsmManager.AddStateList(stateIdle);
+        fsmManager = new StateMachine<MonsterFSM>(this, new stateIdle());
         fsmManager.AddStateList(new stateMove());
         fsmManager.AddStateList(new stateAtk());
+
+        //fsmManager = new StateMachine<MonsterFSM>(this, new StateRomming());
+        //stateIdle stateIdle = new stateIdle();
+        //stateIdle.isRomming = true;
+        //fsmManager.AddStateList(stateIdle);
+        //fsmManager.AddStateList(new stateMove());
+        //fsmManager.AddStateList(new stateAtk());
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         fsmManager.Update(Time.deltaTime);
         Debug.Log(fsmManager.getNowState);
     }
 
-    public Transform SearchEnemy()
+    public virtual Transform SearchEnemy()
     {
         return target;
     }
 
-    public Transform SearchNextTargetPosition()
-    {
-        posTarget = null;
-        if (posTargets.Length > 0)
-        {
-            posTarget = posTargets[posTargetsIdx];
-        }
+    //public Transform SearchNextTargetPosition()
+    //{
+    //    posTarget = null;
+    //    if (posTargets.Length > 0)
+    //    {
+    //        posTarget = posTargets[posTargetsIdx];
+    //    }
 
-        posTargetsIdx = (posTargetsIdx + 1) % posTargets.Length;
+    //    posTargetsIdx = (posTargetsIdx + 1) % posTargets.Length;
 
-        return posTarget;
-    }
+    //    return posTarget;
+    //}
 }

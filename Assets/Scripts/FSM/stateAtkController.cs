@@ -26,7 +26,7 @@ public class stateAtkController : MonoBehaviour
     public void stateAtkControllerEnter() { }
     public void stateAtkControllerEnd() { }
 
-
+  
     public void EventStateAtkStart()
     {
         getFlagStateAtkController = true;
@@ -38,7 +38,7 @@ public class stateAtkController : MonoBehaviour
         stateAtkControllerEndHandler();
     }
 
-    public void OnCheckAttackCollider(int attackIndex)
+    public void OnCheckAttackCollider(int attackIndex)  
     {
         GetComponent<IAtkAble>()?.OnExecuteAttack(attackIndex);
     }
