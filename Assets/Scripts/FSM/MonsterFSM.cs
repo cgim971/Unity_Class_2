@@ -61,6 +61,11 @@ public class MonsterFSM : MonoBehaviour
         return target;
     }
 
+    public Transform SearchNextTargetPosition()
+    {
+        return null;
+    }
+
     //public Transform SearchNextTargetPosition()
     //{
     //    posTarget = null;

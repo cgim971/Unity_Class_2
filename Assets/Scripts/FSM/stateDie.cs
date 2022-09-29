@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class stateDie : State<MonsterFSM>
 {
+    private Animator animator;
+
+    protected int flagLive = Animator.StringToHash("flagLive");
+
+    public override void OnAwake()
+    {
+        animator = stateMachineClass.GetComponent<Animator>();
+    }
+
+    public override void OnStart()
+    {
+        animator?.SetBool(flagLive, false);
+    }
+
     public override void OnUpdate(float deltaTime)
     {
-        throw new System.NotImplementedException();
+        if (stateMachine.getStateDurationTime > 3.0f)
+        {
+            GameObject.Destroy(stateMachineClass.gameObject);
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public override void OnEnd() { }
 }

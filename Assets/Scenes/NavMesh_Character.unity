@@ -437,6 +437,51 @@ MonoBehaviour:
   camFollowTime: 0.5
   targetHeight: 2
   camTarget: {fileID: 543450653491168506}
+--- !u!1 &1001877026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1001877027}
+  - component: {fileID: 1001877028}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1001877027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001877026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7689861617681124684}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1001877028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001877026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6149cb7c5c77647a771563679d9808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxSize: {x: 2, y: 2, z: 2}
 --- !u!1 &1313843330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,6 +1331,8 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652390499069}
   - component: {fileID: 5866666020735645831}
+  - component: {fileID: 5866666020735645833}
+  - component: {fileID: 5866666020735645832}
   m_Layer: 0
   m_Name: Monster (1)
   m_TagString: Untagged
@@ -5229,6 +5276,53 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666020735645832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148181563463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1213a47265f83204aa0f098fb2b3de8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aniMotionIdx: 0
+  importanceAtkNo: 0
+  atkDmg: 0
+  atkRange: 3
+  atkCoolTime: 0
+  atkEffectPrefab: {fileID: 5646887421239397371, guid: 394986558e87a8443995066b1d70909c, type: 3}
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  devComment: 
+--- !u!114 &5866666020735645833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148181563463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6171d7778a41f42af25810fc96ae5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posTargets: []
+  posTarget: {fileID: 0}
+  atkRange: 1.5
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  atkItemCollider: {fileID: 0}
+  launchWeaponTransform: {fileID: 0}
+  weaponHitTransform: {fileID: 0}
+  attackBehaviours:
+  - {fileID: 5866666020735645832}
+  - {fileID: 5866666020735645832}
+  maxHp: 100
 --- !u!95 &5866666021833039488
 Animator:
   serializedVersion: 4
@@ -6091,8 +6185,10 @@ GameObject:
   - component: {fileID: 4348169032419415862}
   - component: {fileID: 7689861617681124687}
   - component: {fileID: 7689861617681124686}
-  - component: {fileID: 7689861617681124685}
   - component: {fileID: 7689861617681124688}
+  - component: {fileID: 7689861617681124691}
+  - component: {fileID: 7689861617681124690}
+  - component: {fileID: 7689861617681124689}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -6628,26 +6724,10 @@ Transform:
   m_Children:
   - {fileID: 2803405739329400280}
   - {fileID: 7580220768417630720}
+  - {fileID: 1001877027}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7689861617681124685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7060571962493048822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b79f459ba8520f4791a62d88827d256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posTargets:
-  - {fileID: 220741265}
-  - {fileID: 884988682}
-  posTarget: {fileID: 0}
-  atkRange: 2
 --- !u!143 &7689861617681124686
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6709,6 +6789,76 @@ MonoBehaviour:
   blockLayerMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &7689861617681124689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060571962493048822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1213a47265f83204aa0f098fb2b3de8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aniMotionIdx: 0
+  importanceAtkNo: 2
+  atkDmg: 0
+  atkRange: 10
+  atkCoolTime: 0
+  atkEffectPrefab: {fileID: 5646887421239397371, guid: 394986558e87a8443995066b1d70909c, type: 3}
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  devComment: 
+--- !u!114 &7689861617681124690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060571962493048822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5245d83140a129449ac17f1e2ee32a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aniMotionIdx: 0
+  importanceAtkNo: 1
+  atkDmg: 0
+  atkRange: 1.5
+  atkCoolTime: 0
+  atkEffectPrefab: {fileID: 0}
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  devComment: 
+  collisionMeleeAtk: {fileID: 0}
+--- !u!114 &7689861617681124691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060571962493048822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6171d7778a41f42af25810fc96ae5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posTargets: []
+  posTarget: {fileID: 0}
+  atkRange: 0
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  atkItemCollider: {fileID: 0}
+  launchWeaponTransform: {fileID: 0}
+  weaponHitTransform: {fileID: 0}
+  attackBehaviours:
+  - {fileID: 7689861617681124690}
+  - {fileID: 7689861617681124689}
+  maxHp: 100
 --- !u!1 &7732535365478428905
 GameObject:
   m_ObjectHideFlags: 0
